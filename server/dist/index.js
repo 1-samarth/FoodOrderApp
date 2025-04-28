@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
             name: "Boilded Egg",
             price: 10,
             text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image: "./public/images/egg.png",
+            image: "public/images/egg.png",
             type: "breakfast",
         },
         {
@@ -53,7 +53,7 @@ app.get("/", (req, res) => {
             name: "PANCAKE",
             price: 25,
             text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image: "./public/images/pancake.png",
+            image: "public/images/pancake.png",
             type: "dinner",
         },
     ];
