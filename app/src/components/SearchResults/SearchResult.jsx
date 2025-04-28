@@ -8,7 +8,7 @@ const SearchResult = ({ data }) => {
           {data?.map(({ name, image, text, price }) => (
             <FoodCard key={name}>
               <div className="food_image">
-                <img src={"../../"+image} />
+                <img src={image} />
               </div>
               <div className="food_info">
                 <div className="info">
