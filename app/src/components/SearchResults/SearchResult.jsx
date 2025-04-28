@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { BASE_URL, Button, Container } from "../../App";
+
 const SearchResult = ({ data }) => {
   return (
     <FoodCardContainer>
@@ -8,7 +9,7 @@ const SearchResult = ({ data }) => {
           {data?.map(({ name, image, text, price }) => (
             <FoodCard key={name}>
               <div className="food_image">
-                <img src={image} />
+                <img src={image} alt={name} />
               </div>
               <div className="food_info">
                 <div className="info">
@@ -26,11 +27,14 @@ const SearchResult = ({ data }) => {
 };
 
 export default SearchResult;
+
+// Styled Components
 const FoodCardContainer = styled.section`
   min-height: calc(100vh - 210px);
   background-image: url("/bg.png");
   background-size: cover;
 `;
+
 const FoodCards = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -40,11 +44,11 @@ const FoodCards = styled.div`
   align-items: center;
   padding-top: 80px;
 `;
+
 const FoodCard = styled.div`
   width: 340px;
   height: 167px;
   border: 0.66px solid;
-
   border-image-source: radial-gradient(
       80.69% 208.78% at 108.28% 112.58%,
       #eabfff 0%,
@@ -55,7 +59,6 @@ const FoodCard = styled.div`
       #98f9ff 0%,
       rgba(255, 255, 255, 0) 100%
     );
-
   background: url(.png),
     radial-gradient(
       90.16% 143.01% at 15.32% 21.04%,
@@ -65,26 +68,46 @@ const FoodCard = styled.div`
     );
   background-blend-mode: overlay, normal;
   backdrop-filter: blur(13.1842px);
-
   border-radius: 20px;
-
   display: flex;
   padding: 8px;
 
+  .food_image {
+    flex-shrink: 0;
+    width: 140px;
+    height: 140px;
+    overflow: hidden;
+    border-radius: 10px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+  }
+
   .food_info {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: end;
+    align-items: flex-end;
+    padding-left: 10px;
+
     h3 {
       margin-top: 8px;
       font-size: 16px;
       font-weight: 500;
+      text-align: right;
     }
+
     p {
       margin-top: 4px;
       font-size: 12px;
+      text-align: right;
     }
+
     button {
       font-size: 12px;
     }
